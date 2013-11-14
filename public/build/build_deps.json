@@ -1,0 +1,273 @@
+[
+    {
+        "name": "default_bundle",
+        "modules": [
+            {
+                "name": "bootstrap",
+                "path": "bootstrap.coffee",
+                "type": "plainjs",
+                "location": "fs",
+                "deps": [],
+                "prefix_meta": {}
+            },
+            {
+                "name": "require",
+                "path": "require.coffee",
+                "type": "plainjs",
+                "location": "fs",
+                "deps": [
+                    "bootstrap"
+                ],
+                "prefix_meta": {}
+            },
+            {
+                "name": "event-channel",
+                "path": "npm://event-channel",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "event-channel",
+                    "npm_module_name": "event-channel"
+                }
+            },
+            {
+                "name": "dna-event-channel",
+                "path": "npm://dna-event-channel",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "event-channel",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "dna-event-channel",
+                    "npm_module_name": "dna-event-channel"
+                }
+            },
+            {
+                "name": "api",
+                "path": "api.coffee",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "require"
+                ],
+                "prefix_meta": {}
+            },
+            {
+                "name": "dc-helper",
+                "path": "npm://dc-helper@0.0.15",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "dc-helper@0.0.15",
+                    "version": "0.0.15",
+                    "npm_module_name": "dc-helper"
+                }
+            },
+            {
+                "name": "libstate",
+                "path": "npm://libstate@0.0.1",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "libstate@0.0.1",
+                    "version": "0.0.1",
+                    "npm_module_name": "libstate"
+                }
+            },
+            {
+                "name": "config",
+                "path": "config.coffee",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "libstate",
+                    "bootstrap",
+                    "require"
+                ],
+                "prefix_meta": {}
+            },
+            {
+                "name": "console-logger",
+                "path": "npm://console-logger@0.0.109",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "config",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "console-logger@0.0.109",
+                    "version": "0.0.109",
+                    "npm_module_name": "console-logger"
+                }
+            },
+            {
+                "name": "libprotein",
+                "path": "npm://libprotein@0.0.79",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "console-logger",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "libprotein@0.0.79",
+                    "version": "0.0.79",
+                    "npm_module_name": "libprotein"
+                }
+            },
+            {
+                "name": "queue-manager",
+                "path": "queue-manager.coffee",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "libprotein",
+                    "api",
+                    "require"
+                ],
+                "prefix_meta": {}
+            },
+            {
+                "name": "libprotocol",
+                "path": "npm://libprotocol@0.0.76",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "libprotein",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "libprotocol@0.0.76",
+                    "version": "0.0.76",
+                    "npm_module_name": "libprotocol"
+                }
+            },
+            {
+                "name": "libmonad",
+                "path": "npm://libmonad",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "libprotein",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "libmonad",
+                    "npm_module_name": "libmonad"
+                }
+            },
+            {
+                "name": "commonjs-jquery",
+                "path": "npm://commonjs-jquery",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "commonjs-jquery",
+                    "npm_module_name": "commonjs-jquery"
+                }
+            },
+            {
+                "name": "jquery",
+                "path": "jquery.coffee",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "commonjs-jquery",
+                    "require"
+                ],
+                "prefix_meta": {}
+            },
+            {
+                "name": "idom-jquery",
+                "path": "npm://dc-idom@0.0.23",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "jquery",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "dc-idom@0.0.23",
+                    "version": "0.0.23",
+                    "npm_module_name": "dc-idom"
+                }
+            },
+            {
+                "name": "dom-mutation-observer",
+                "path": "npm://dom-mutation-observer@0.0.4",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "libprotein",
+                    "libprotocol",
+                    "commonjs-jquery",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "dom-mutation-observer@0.0.4",
+                    "version": "0.0.4",
+                    "npm_module_name": "dom-mutation-observer"
+                }
+            },
+            {
+                "name": "dna",
+                "path": "npm://dna-lang@0.2.19",
+                "type": "commonjs",
+                "location": "fs",
+                "deps": [
+                    "idom-jquery",
+                    "libmonad",
+                    "libprotein",
+                    "libprotocol",
+                    "dom-mutation-observer",
+                    "require"
+                ],
+                "prefix_meta": {
+                    "prefix": "npm",
+                    "npm_path": "dna-lang@0.2.19",
+                    "version": "0.2.19",
+                    "npm_module_name": "dna-lang"
+                }
+            },
+            {
+                "name": "main",
+                "path": "main.coffee",
+                "type": "plainjs",
+                "location": "fs",
+                "deps": [
+                    "queue-manager",
+                    "dc-helper",
+                    "dna-event-channel",
+                    "dna"
+                ],
+                "prefix_meta": {}
+            }
+        ]
+    }
+]

@@ -1,0 +1,61 @@
+abstract: 
+    api_version: 5
+    # extends:
+
+#opts:
+#    minify: false
+
+
+# modules section is for registering application modules
+# you can read more detailed about modules format here - https://github.com/EugeneN/cafe/wiki/recipe-file
+modules:
+  - require:
+      path: require.coffee
+      type: plainjs
+      deps:
+        - bootstrap
+
+  - bootstrap:
+      path: bootstrap.coffee
+      type: plainjs
+
+  - libstate:              [npm://libstate@0.0.1,         [require]]
+  - config:                [config.coffee,                [libstate, bootstrap, require]]
+  - console-logger:        [npm://console-logger@0.0.109, [config, require]]
+
+  - event-channel:         [npm://event-channel,          [require]]
+  - dna-event-channel:     [npm://dna-event-channel,      [event-channel, require]]
+
+  - libprotein:            [npm://libprotein@0.0.79,      [console-logger, require]]
+  - libprotocol:           [npm://libprotocol@0.0.76,     [libprotein, require]]
+  - libmonad:              [npm://libmonad,               [libprotein, require]]
+
+  - commonjs-jquery:       [npm://commonjs-jquery,        [require]]
+  - jquery:                [jquery.coffee,                [commonjs-jquery, require]]
+  - idom-jquery:           [npm://dc-idom@0.0.23,         [jquery, require]]
+
+  - dom-mutation-observer: [npm://dom-mutation-observer@0.0.4, [libprotein, libprotocol, commonjs-jquery, require]]
+  - dna:                   [npm://dna-lang@0.2.19,        [idom-jquery, libmonad, libprotein, libprotocol, dom-mutation-observer, require]]
+
+  - dc-helper:               [npm://dc-helper@0.0.15,       [require]]
+
+  - api:                   [api.coffee,                   [require]]
+  - queue-manager:         [queue-manager.coffee,         [libprotein, api, require]]
+
+  - main:
+      path: main.coffee
+      type: plainjs
+      deps:
+        - queue-manager
+        - dc-helper
+        - dna-event-channel
+        - dna
+
+
+# Section for defining your bundles structure
+bundles:
+    default_bundle:
+        modules:
+            - dna
+
+            - main

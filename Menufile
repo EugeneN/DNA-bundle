@@ -1,0 +1,33 @@
+{
+    "build": {
+        "build": {
+            "app_root": "cs",
+            "build_root": "public",
+            "formula": "recipe.yaml"
+        }
+    },
+    "force": {
+        "build": {
+            "app_root": "cs",
+            "build_root": "public",
+            "formula": "recipe.yaml",
+            "f": true
+        }
+    },
+    "watch": {
+        "build": {
+            "app_root": "cs",
+            "build_root": "public",
+            "formula": "recipe.yaml",
+            "w": true
+        }
+    },
+    "update": {
+        "build": {
+            "app_root": "cs",
+            "build_root": "public",
+            "formula": "recipe.yaml",
+            "u": true
+        }
+    }
+}
